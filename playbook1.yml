@@ -1,0 +1,17 @@
+---
+- name: install_docker
+  gether_facts: No
+  host: localhost
+  vars:
+    user_name: ansible
+
+  tasks:
+    -name: Install yum utils
+    yum:
+      name: "{{ item }}"
+      state: latest
+      with_items: 
+        -yum-utils
+        -lvm2
+        -device-mapper-persistent-data
+

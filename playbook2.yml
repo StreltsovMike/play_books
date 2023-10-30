@@ -1,0 +1,22 @@
+---
+- name: instal nginx
+  gether_facts: No
+  host: localhost
+  remote_user: root
+
+  tasks:
+    - name: Create a directory if it does not exis
+      ansible.builtin.file:
+        path: /etc/some_directory
+        state: directory
+        mode: '0755'
+
+    - name: instal nginx
+      ansible.builtin.file:
+        name: nginx
+        state: latest
+
+    - name: start service
+      ansible.builtin.file:
+        name: nginx
+        state: started
